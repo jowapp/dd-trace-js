@@ -65,9 +65,10 @@ function patch (http, methodName, tracer, config) {
         }
       })
 
-      if (!hasAmazonSignature(options)) {
-        tracer.inject(span, HTTP_HEADERS, options.headers)
-      }
+      // Removing headers injections wit x-datadog headers
+      // if (!hasAmazonSignature(options)) {
+      //   tracer.inject(span, HTTP_HEADERS, options.headers)
+      // }
 
       analyticsSampler.sample(span, config.analytics)
 
